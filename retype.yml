@@ -1,6 +1,6 @@
 input: .
 output: .retype
-url: # Add your website address here
+url: rebar-ascended.dev
 branding:
   title: ASCENDED
   label: Docs
