@@ -18,6 +18,9 @@ const CameraAPI = useClientApi().get("ascended-camera-api");
 
 const webview = useWebview();
 
+//This one is a bit tricky: false is what you want if the camera should start
+CameraAPI.onMovementControl(false);
+
 webview.on("CAMERA_MOVE_START", CameraAPI.cameraMoveStart);
 webview.on("CAMERA_MOVE_END", CameraAPI.cameraMoveEnd);
 webview.on("CAMERA_SCROLL_UP", CameraAPI.cameraMoveIn);
@@ -46,6 +49,23 @@ onMounted(async () => {
     }
   });
 });
+```
+
+### Config file
+
+```javascript
+export const ASC_CameraConfig = {
+  ease: true, //Should the camera have a smooth transition?
+  easeTime: 1500, //If yes how long should it take
+  focusOnPlayer: false, //Focus the camera on the player
+  focusOnVehicle: false, //Focus the player on the vehicle in which the player sits
+  cameraOffset: {
+    //Offset the camera
+    x: 0,
+    y: 0,
+    z: 0,
+  },
+};
 ```
 
 ### Demonstration
