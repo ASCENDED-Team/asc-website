@@ -42,7 +42,7 @@ icon: home
     <p>Lorem Ipsum</p>
   </li>
   <li>
-    <h3><code>ASC Notification</code></h3>
+    <h3><code>ASC Notifications</code></h3>
     <p>Lorem Ipsum</p>
   </li>
   <li>
