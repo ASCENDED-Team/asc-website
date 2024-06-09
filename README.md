@@ -31,25 +31,10 @@ icon: home
 </style>
 <center>
 <img src="/static/logo.svg" alt="RebarV Plugins Logo" width="800" height="100" /><br /><br />
+<iframe src="https://discord.com/widget?id=1246446464159449158&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe><br />
 </center>
+
 <p>We are a small team of developers who focus on creating amazing and beautiful plugins for the alt:V Framework RebarV. Our goal is to provide the community with high-quality plugins that enhance the gaming experience.</p>
-
-## Our Plugins
-
-<ul class="plugin-list">
-  <li>
-    <h3><code>ASC Tuning</code></h3>
-    <p>Lorem Ipsum</p>
-  </li>
-  <li>
-    <h3><code>ASC Notifications</code></h3>
-    <p>Lorem Ipsum</p>
-  </li>
-  <li>
-    <h3><code>ASC Inventory</code></h3>
-    <p>Lorem Ipsum</p>
-  </li>
-</ul>
 
 ## Contact Us
 

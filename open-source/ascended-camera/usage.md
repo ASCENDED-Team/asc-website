@@ -3,6 +3,8 @@ label: "Usage"
 icon: book
 ---
 
+![](/static/Camera.jpg)
+
 To start using our camera script, ensure you have a Lifecycle Hook (Webview) set up. Additionally, you'll need a camera.ts file on the client side to utilize the plugin correctly.
 
 ### Clientside (TypeScript)

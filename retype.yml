@@ -3,9 +3,11 @@ output: .retype
 url: rebar-ascended.dev
 branding:
   title: ASCENDED
-  label: Docs
+  label: Documentation
 links:
-  - text: Getting Started
-    link: https://retype.com/guides/getting-started/
+  - text: GitHub
+    link: https://github.com/ASCENDED-Team
+  - text: Discord
+    link: https://discord.gg/NTmcy8Es3a
 footer:
   copyright: "&copy; Copyright {{ year }}. All rights reserved."

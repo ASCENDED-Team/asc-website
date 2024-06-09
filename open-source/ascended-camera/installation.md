@@ -3,6 +3,8 @@ label: "Installation"
 icon: book
 ---
 
+![](/static/Camera.jpg)
+
 ### Installation Guide
 
 In your Rebar directionary go to cd src/plugins and clone the camera plugin into this directionary.
