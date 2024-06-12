@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.771287332082">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.771506602467">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.771287332082" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.771506602467" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.771287332082" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.771506602467" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.771287332082" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.771287332082" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.771506602467" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.771506602467" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -184,6 +184,28 @@
 </figure>
 </p>
 <p>To start using our camera script, ensure you have a Lifecycle Hook (Webview) set up. Additionally, you&#x27;ll need a camera.ts file on the client side to utilize the plugin correctly.</p>
+<doc-anchor-target id="exposed-functions---client-api-typescript">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#exposed-functions---client-api-typescript">#</doc-anchor-trigger>
+        <span>Exposed Functions - Client API (TypeScript)</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">import { useWebview } from &quot;@Client/webview/index.js&quot;;
+import { useClientApi } from &quot;@Client/api/index.js&quot;;
+
+const CameraAPI = useClientApi().get(&quot;ascended-camera-api&quot;);
+
+CameraAPI.focusPlayer();
+CameraAPI.focusVehicle();
+CameraAPI.ease(boolean, number); // True/False | Time in MS
+
+CameraAPI.cameraMoveStart;
+CameraAPI.cameraMoveEnd;
+CameraAPI.cameraMoveIn;
+CameraAPI.cameraMoveOut;
+CameraAPI.onMovementControl(boolean);</code></pre>
+</doc-codeblock></div>
 <doc-anchor-target id="clientside-typescript">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#clientside-typescript">#</doc-anchor-trigger>
@@ -195,7 +217,7 @@
 import { useClientApi } from &quot;@Client/api/index.js&quot;;
 
 // Get the CameraAPI through Rebar's Plugin API-System
-const CameraAPI = useClientApi().get(&quot;ascended-camera-api&quot;);
+const CameraAPI = await useClientApi().getAsync(&quot;ascended-camera-api&quot;);
 
 const webview = useWebview();
 
@@ -234,26 +256,6 @@ webview.on(&quot;CAMERA_SCROLL_DOWN&quot;, CameraAPI.cameraMoveOut);</code></pre
   });
 });</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="config-file">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#config-file">#</doc-anchor-trigger>
-        <span>Config file</span>
-    </h3>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">export const ASC_CameraConfig = {
-  ease: true, //Should the camera have a smooth transition?
-  easeTime: 1500, //If yes how long should it take
-  focusOnPlayer: false, //Focus the camera on the player
-  focusOnVehicle: false, //Focus the player on the vehicle in which the player sits
-  cameraOffset: {
-    //Offset the camera
-    x: 0,
-    y: 0,
-    z: 0,
-  },
-};</code></pre>
-</doc-codeblock></div>
 <doc-anchor-target id="demonstration">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#demonstration">#</doc-anchor-trigger>
@@ -286,7 +288,7 @@ webview.on(&quot;CAMERA_SCROLL_DOWN&quot;, CameraAPI.cameraMoveOut);</code></pre
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../open-source/ascended-hud/installation/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../open-source/ascended-fuel/installation/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
                                                 <span class="block mt-1">Installation</span>
