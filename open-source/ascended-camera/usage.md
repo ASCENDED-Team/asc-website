@@ -7,6 +7,25 @@ icon: book
 
 To start using our camera script, ensure you have a Lifecycle Hook (Webview) set up. Additionally, you'll need a camera.ts file on the client side to utilize the plugin correctly.
 
+### Exposed Functions - Client API (TypeScript)
+
+```typescript
+import { useWebview } from "@Client/webview/index.js";
+import { useClientApi } from "@Client/api/index.js";
+
+const CameraAPI = useClientApi().get("ascended-camera-api");
+
+CameraAPI.focusPlayer();
+CameraAPI.focusVehicle();
+CameraAPI.ease(boolean, number); // True/False | Time in MS
+
+CameraAPI.cameraMoveStart;
+CameraAPI.cameraMoveEnd;
+CameraAPI.cameraMoveIn;
+CameraAPI.cameraMoveOut;
+CameraAPI.onMovementControl(boolean);
+```
+
 ### Clientside (TypeScript)
 
 ```javascript
@@ -14,7 +33,7 @@ import { useWebview } from "@Client/webview/index.js";
 import { useClientApi } from "@Client/api/index.js";
 
 // Get the CameraAPI through Rebar's Plugin API-System
-const CameraAPI = useClientApi().get("ascended-camera-api");
+const CameraAPI = await useClientApi().getAsync("ascended-camera-api");
 
 const webview = useWebview();
 
@@ -49,23 +68,6 @@ onMounted(async () => {
     }
   });
 });
-```
-
-### Config file
-
-```javascript
-export const ASC_CameraConfig = {
-  ease: true, //Should the camera have a smooth transition?
-  easeTime: 1500, //If yes how long should it take
-  focusOnPlayer: false, //Focus the camera on the player
-  focusOnVehicle: false, //Focus the player on the vehicle in which the player sits
-  cameraOffset: {
-    //Offset the camera
-    x: 0,
-    y: 0,
-    z: 0,
-  },
-};
 ```
 
 ### Demonstration
