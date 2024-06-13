@@ -4,6 +4,8 @@ icon: book
 order: 100
 ---
 
+![](/static/notification.jpg)
+
 # Config
 
 ```typescript

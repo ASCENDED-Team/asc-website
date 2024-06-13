@@ -4,6 +4,8 @@ icon: book
 order: 100
 ---
 
+![](/static/Hud.jpg)
+
 ```typescript
 import { useRebar } from "@Server/index.js";
 import { HudConfig } from "../../shared/config.js";

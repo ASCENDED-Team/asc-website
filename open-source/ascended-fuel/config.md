@@ -4,6 +4,8 @@ icon: book
 order: 100
 ---
 
+![](/static/Fuel.jpg)
+
 ```typescript
 import * as alt from "alt-server";
 import { FUEL_TYPES } from "./fuelTypes.js";

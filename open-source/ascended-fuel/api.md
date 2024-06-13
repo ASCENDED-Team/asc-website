@@ -4,6 +4,8 @@ icon: book
 order: 150
 ---
 
+![](/static/Fuel.jpg)
+
 # How to use Plugin API - Serverside
 
 ```typescript
