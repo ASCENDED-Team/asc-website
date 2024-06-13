@@ -54,8 +54,6 @@ messenger.commands.register({
       const document = Rebar.document.vehicle.useVehicle(createdVehicle).get();
 
       Rebar.document.vehicle.useVehicle(createdVehicle).setBulk({
-        mods: vehicleMods,
-        extras: vehicleExtras,
         fuel: 30,
         ascendedFuel: {
           consumption: 0,
