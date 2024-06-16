@@ -70,7 +70,6 @@ messenger.commands.register({
 
       alt.logWarning(`Vehicle Creation successfully`);
 
-      await FuelAPI.setFuelTypes();
       await FuelAPI.setConsumptionRates();
     } catch (error) {
       alt.logError(error);
