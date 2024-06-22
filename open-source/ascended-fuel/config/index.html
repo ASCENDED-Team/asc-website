@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.772390234480">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.772390462404">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -29,12 +29,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.772390234480" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.772390462404" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.772390234480" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.772390462404" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.772390234480" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.772390234480" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.772390462404" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.772390462404" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -181,41 +181,54 @@
 </figure>
 </p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-typescript"><code v-pre class="language-typescript">import * as alt from &quot;alt-server&quot;;
-import { FUEL_TYPES } from &quot;./fuelTypes.js&quot;;
+<pre class="language-typescript"><code v-pre class="language-typescript">import { useRebar } from &quot;@Server/index.js&quot;;
+import * as alt from &quot;alt-server&quot;;
 
-// Default Settings - Used when nothing is set in VEHICLE_CONSUMPTION.
+const Rebar = useRebar();
+const ServerConfig = Rebar.useServerConfig();
+
+ServerConfig.set(&quot;disableVehicleEngineAutoStart&quot;, true); // Disables Engine Auto Start
+
+export const FUEL_TYPES = {
+  Gasolin: &quot;Gasolin&quot;,
+  Diesel: &quot;Diesel&quot;,
+  Electric: &quot;Electric&quot;,
+  Kerosin: &quot;Kerosin&quot;,
+};
+
 export const FUEL_SETTINGS = {
+  checkForUpdates: true, // Check automatically for updates through asc-versioncheck api?
   AscHUD: true, // Use with our HUD? (https://github.com/ASCENDED-Team/asc-hud)
-  Debug: true, // Debug? For logs and stuff.
-  DefaultConsumption: 0.003, // Consume if not existent in VEHICLE_CONSUMPTION Array below
-  DefaultFuel: FUEL_TYPES.Diesel, // Fuel Type if not existent in the 4 Arrays below.
-  DefaultMax: 30, // Default Max_Fuel per Vehicle - Used if not exists in VEHICLE_CONSUMPTION Array below
+  AscNotification: false, // Use Notification System? (https://github.com/ASCENDED-Team/asc-notifications)
+  Debug: true, // Debug for logs and stuff?
+  DefaultConsumption: 0.003, // Default consumption if none is set in the the array below.
+  DefaultFuel: FUEL_TYPES.Diesel, // Default fuel_type if none is set in the array below.
+  DefaultMax: 30, // Default max_fuel if none is set in the array below.
+  enableSound: false, // For toggle_engine you can enable this and replace the sound in /sounds folder.
 };
 
 export const VEHICLE_CONSUMPTION: Array&lt;{
   model: number;
   consume: number;
+  type?: string;
   maxFuel: number;
 }&gt; = [
-  { model: alt.hash(&quot;t20&quot;), consume: 0.009, maxFuel: 40 },
-  { model: alt.hash(&quot;zentorno&quot;), consume: 0.1, maxFuel: 30 },
+  {
+    model: alt.hash(&quot;t20&quot;),
+    consume: 0.009,
+    type: FUEL_TYPES.Diesel, // Optional set fuel_type individually per vehicle. Otherwise it uses DEFAULT_FUEL.
+    maxFuel: 40,
+  },
+  {
+    model: alt.hash(&quot;zentorno&quot;),
+    consume: 0.0035,
+    type: FUEL_TYPES.Gasolin,
+    maxFuel: 30,
+  },
   { model: alt.hash(&quot;panto&quot;), consume: 0.05, maxFuel: 15 },
-  { model: alt.hash(&quot;italirsx&quot;), consume: 0.002, maxFuel: 30 },
+  { model: alt.hash(&quot;italirsx&quot;), consume: 0.1, maxFuel: 30 },
   { model: alt.hash(&quot;krieger&quot;), consume: 0.01, maxFuel: 50 },
-];
-
-// Vehicles that should use Gasolin
-export const GASOLIN = [&quot;sultanrs&quot;, &quot;t20&quot;, &quot;krieger&quot;, &quot;zentorno&quot;];
-
-// Vehicles that should use Kerosin
-export const KEROSIN = [&quot;maverick&quot;];
-
-// Vehicles that should use Diesel
-export const DIESEL = [&quot;panto&quot;];
-
-// Vehicles that use Electric
-export const ELECTRIC = [&quot;italirsx&quot;];</code></pre>
+];</code></pre>
 </doc-codeblock></div>
 
                                 
