@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.772389876363">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.772390234480">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -29,12 +29,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.772389876363" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.772390234480" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.772389876363" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.772390234480" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.772389876363" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.772389876363" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.772390234480" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.772390234480" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -185,7 +185,8 @@
 const messenger = Rebar.messenger.useMessenger();
 const FuelAPI = await Rebar.useApi().getAsync(&quot;ascended-fuel-api&quot;); // Import the Fuel API async
 
-FuelAPI.setFuelTypes();
+FuelAPI.getFuelType(vehicle); // Gets the fuel type of the current vehicle.
+FuelAPI.getFuelTypes(); // Returns all available fuel_types from the config file.
 // ...
 // See Functions below this section</code></pre>
 </doc-codeblock></div>
@@ -196,32 +197,58 @@ FuelAPI.setFuelTypes();
     </h1>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-typescript"><code v-pre class="language-typescript">async function setFuelTypes() {
-  await setVehicleFuelTypes();
+<pre class="language-typescript"><code v-pre class="language-typescript">async function createAscendedFuelPropertie(vehicle: alt.Vehicle) {
+  try {
+    const vehicleDocument = Rebar.document.vehicle.useVehicle(vehicle);
+    await vehicleDocument.setBulk({
+      fuel: 30,
+      ascendedFuel: {
+        consumption: 0,
+        max: 0,
+        type: &quot;&quot;,
+      },
+    });
+    await setConsumptionRates();
+    console.log(
+      `Added ascended fuel properties for Vehicle Model: ${Rebar.utility.vehicleHashes.getNameFromHash(
+        vehicle.model
+      )} | Fuel: ${vehicleDocument.getField(&quot;fuel&quot;)}`
+    );
+  } catch (error) {
+    console.error(&quot;Error while setting ASCENDED-Fuel Properties:&quot;, error);
+  }
 }
 
 async function setConsumptionRates() {
   await setVehicleConsumptionRates();
 }
 
-async function getFuelType(model: string) {
-  await getVehicleFuelType(model);
+function toggleVehicleEngine(player: alt.Player) {
+  toggleEngine(player);
 }
 
-async function getFuelConsumption(model: string) {
-  await getVehicleFuelConsumption(model);
+async function getFuelType(vehicle: alt.Vehicle) {
+  await getVehicleFuelType(vehicle);
 }
 
-async function refill(player: alt.Player) {
-  await refillVehicle(player);
+async function getFuelConsumption(vehicle: alt.Vehicle) {
+  await getVehicleFuelConsumption(vehicle);
+}
+
+async function refill(player: alt.Player, amount?: number) {
+  await refillVehicle(player, amount);
 }
 
 async function refillCloseVehicle(player: alt.Player, amount: number) {
   await refillClosestVehicle(player, amount);
 }
 
-async function getMaxFuel(model: string | number) {
-  return await getVehicleMaxFuel(model);
+async function getMaxFuel(vehicle: alt.Vehicle) {
+  await getVehicleMaxFuel(vehicle);
+}
+
+function getFuelTypes() {
+  return FUEL_TYPES;
 }</code></pre>
 </doc-codeblock></div>
 
