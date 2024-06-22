@@ -10,19 +10,10 @@ To ensure ascended-fuel is working properly you will have to follow these steps.
 
 ### Your Vehicle Creaton
 
-- Ensure you vehicle creation has setted values for ascended-fuel. You will find an example command below.
+- Ensure you vehicle creation has setted values for ascended-fuel. You will find an example below.
 
 ```typescript
-Rebar.document.vehicle.useVehicle(createdVehicle).setBulk({
-  mods: vehicleMods,
-  extras: vehicleExtras,
-  fuel: document.fuel,
-  ascendedFuel: {
-    consumption: 0,
-    max: 0,
-    type: "",
-  },
-});
+await FuelAPI.createAscendedFuelPropertie(createdVehicle); // Automatically attaches values in your command if called.
 ```
 
 # Example Command to create a Vehicle
@@ -53,24 +44,17 @@ messenger.commands.register({
       await Rebar.vehicle.useVehicle(createdVehicle).create(playerData._id);
       const document = Rebar.document.vehicle.useVehicle(createdVehicle).get();
 
-      Rebar.document.vehicle.useVehicle(createdVehicle).setBulk({
-        fuel: 30,
-        ascendedFuel: {
-          consumption: 0,
-          max: 0,
-          type: "",
-        },
-      });
-
       Rebar.document.vehicle
         .useVehicleBinder(createdVehicle)
         .bind(Rebar.document.vehicle.useVehicle(createdVehicle).get());
       Rebar.vehicle.useVehicle(createdVehicle).sync();
       Rebar.vehicle.useVehicle(createdVehicle).save();
 
-      alt.logWarning(`Vehicle Creation successfully`);
-
-      await FuelAPI.setConsumptionRates();
+      alt.nextTick(async () => {
+        player.setIntoVehicle(createdVehicle, 1);
+        return true;
+      });
+      await FuelAPI.createAscendedFuelPropertie(createdVehicle);
     } catch (error) {
       alt.logError(error);
     }
