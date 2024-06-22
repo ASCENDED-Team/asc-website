@@ -7,39 +7,52 @@ order: 100
 ![](/static/Fuel.jpg)
 
 ```typescript
+import { useRebar } from "@Server/index.js";
 import * as alt from "alt-server";
-import { FUEL_TYPES } from "./fuelTypes.js";
 
-// Default Settings - Used when nothing is set in VEHICLE_CONSUMPTION.
+const Rebar = useRebar();
+const ServerConfig = Rebar.useServerConfig();
+
+ServerConfig.set("disableVehicleEngineAutoStart", true); // Disables Engine Auto Start
+
+export const FUEL_TYPES = {
+  Gasolin: "Gasolin",
+  Diesel: "Diesel",
+  Electric: "Electric",
+  Kerosin: "Kerosin",
+};
+
 export const FUEL_SETTINGS = {
+  checkForUpdates: true, // Check automatically for updates through asc-versioncheck api?
   AscHUD: true, // Use with our HUD? (https://github.com/ASCENDED-Team/asc-hud)
-  Debug: true, // Debug? For logs and stuff.
-  DefaultConsumption: 0.003, // Consume if not existent in VEHICLE_CONSUMPTION Array below
-  DefaultFuel: FUEL_TYPES.Diesel, // Fuel Type if not existent in the 4 Arrays below.
-  DefaultMax: 30, // Default Max_Fuel per Vehicle - Used if not exists in VEHICLE_CONSUMPTION Array below
+  AscNotification: false, // Use Notification System? (https://github.com/ASCENDED-Team/asc-notifications)
+  Debug: true, // Debug for logs and stuff?
+  DefaultConsumption: 0.003, // Default consumption if none is set in the the array below.
+  DefaultFuel: FUEL_TYPES.Diesel, // Default fuel_type if none is set in the array below.
+  DefaultMax: 30, // Default max_fuel if none is set in the array below.
+  enableSound: false, // For toggle_engine you can enable this and replace the sound in /sounds folder.
 };
 
 export const VEHICLE_CONSUMPTION: Array<{
   model: number;
   consume: number;
+  type?: string;
   maxFuel: number;
 }> = [
-  { model: alt.hash("t20"), consume: 0.009, maxFuel: 40 },
-  { model: alt.hash("zentorno"), consume: 0.1, maxFuel: 30 },
+  {
+    model: alt.hash("t20"),
+    consume: 0.009,
+    type: FUEL_TYPES.Diesel, // Optional set fuel_type individually per vehicle. Otherwise it uses DEFAULT_FUEL.
+    maxFuel: 40,
+  },
+  {
+    model: alt.hash("zentorno"),
+    consume: 0.0035,
+    type: FUEL_TYPES.Gasolin,
+    maxFuel: 30,
+  },
   { model: alt.hash("panto"), consume: 0.05, maxFuel: 15 },
-  { model: alt.hash("italirsx"), consume: 0.002, maxFuel: 30 },
+  { model: alt.hash("italirsx"), consume: 0.1, maxFuel: 30 },
   { model: alt.hash("krieger"), consume: 0.01, maxFuel: 50 },
 ];
-
-// Vehicles that should use Gasolin
-export const GASOLIN = ["sultanrs", "t20", "krieger", "zentorno"];
-
-// Vehicles that should use Kerosin
-export const KEROSIN = ["maverick"];
-
-// Vehicles that should use Diesel
-export const DIESEL = ["panto"];
-
-// Vehicles that use Electric
-export const ELECTRIC = ["italirsx"];
 ```
