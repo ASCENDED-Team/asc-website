@@ -8,8 +8,8 @@ order: 300
 
 ### Installation Guide
 
-In your Rebar directionary go to cd src/plugins and clone the fuel plugin into this directionary.
+In your Rebar directory run the following command to clone the ascended-fuel plugin.
 
 ```javascript
-git clone https://github.com/ASCENDED-Team/asc-fuel
+git clone https://github.com/ASCENDED-Team/asc-fuel src/plugins/asc-fuel
 ```

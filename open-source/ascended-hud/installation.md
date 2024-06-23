@@ -8,8 +8,8 @@ order: 300
 
 ### Installation Guide
 
-In your Rebar directionary go to cd src/plugins and clone the hud plugin into this directionary.
+In your Rebar directory run the following command to clone the ascended-hud plugin.
 
 ```javascript
-git clone https://github.com/ASCENDED-Team/asc-hud
+git clone https://github.com/ASCENDED-Team/asc-hud src/plugins/asc-hud
 ```

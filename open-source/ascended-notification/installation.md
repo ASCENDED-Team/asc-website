@@ -8,8 +8,8 @@ order: 1000
 
 ### Installation Guide
 
-In your Rebar directionary go to cd src/plugins and clone the notification plugin into this directionary.
+In your Rebar directory run the following command to clone the ascended-notification plugin.
 
 ```javascript
-git clone https://github.com/ASCENDED-Team/asc-notifications
+git clone https://github.com/ASCENDED-Team/asc-notifications src/plugins/asc-notifications
 ```

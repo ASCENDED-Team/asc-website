@@ -8,16 +8,16 @@ order: 1000
 
 ### Installation Guide
 
-In your Rebar directionary go to cd src/plugins and clone the ascended-inventory-lite plugin into this directionary.
+In your Rebar directory run the following command to clone the ascended-inventory-lite plugin.
 
 ```javascript
-git clone https://github.com/ASCENDED-Team/asc-inventory-lite
+git clone https://github.com/ASCENDED-Team/asc-inventory-lite src/plugins/asc-inventory-lite
 ```
 
-Install Simple-Item-Manager by Stuyk
+Use the following command to install Simple-Item-Manager by Stuyk
 
 ```javascript
-git clone https://github.com/Stuyk/rebar-simple-item-manager
+git clone https://github.com/Stuyk/rebar-simple-item-manager src/plugins/simple-item-manager
 ```
 
 Install vuedraggable@next per pnpm
