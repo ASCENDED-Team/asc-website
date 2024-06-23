@@ -10,6 +10,6 @@ order: 300
 
 In your Rebar directory run the following command to clone the ascended-fuel plugin.
 
-```javascript
+```shell
 git clone https://github.com/ASCENDED-Team/asc-fuel src/plugins/asc-fuel
 ```

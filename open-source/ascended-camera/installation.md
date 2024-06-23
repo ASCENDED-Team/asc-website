@@ -12,6 +12,6 @@ In your Rebar directory run the following command to clone the ascended-camera p
 
 This script is a dependencie for Ascended-Tuning.
 
-```javascript
+```shell
 git clone https://github.com/ASCENDED-Team/asc-camera src/plugins/asc-camera
 ```

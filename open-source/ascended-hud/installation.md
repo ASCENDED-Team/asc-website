@@ -10,6 +10,6 @@ order: 300
 
 In your Rebar directory run the following command to clone the ascended-hud plugin.
 
-```javascript
+```shell
 git clone https://github.com/ASCENDED-Team/asc-hud src/plugins/asc-hud
 ```

@@ -10,6 +10,6 @@ order: 1000
 
 In your Rebar directory run the following command to clone the ascended-notification plugin.
 
-```javascript
+```shell
 git clone https://github.com/ASCENDED-Team/asc-notifications src/plugins/asc-notifications
 ```
