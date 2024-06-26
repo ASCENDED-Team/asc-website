@@ -20,6 +20,7 @@ await FuelAPI.createAscendedFuelPropertie(createdVehicle); // Automatically atta
 
 ```typescript
 import * as alt from "alt-server";
+import { useRebar } from "@Server/index.js";
 const Rebar = useRebar();
 const messenger = Rebar.messenger.useMessenger();
 const FuelAPI = await Rebar.useApi().getAsync("ascended-fuel-api");

@@ -8,10 +8,10 @@ order: 1000
 
 ### Installation Guide
 
-In your Rebar directionary go to cd src/plugins and clone the camera plugin into this directionary.
+In your Rebar directory run the following command to clone the ascended-camera plugin.
 
 This script is a dependencie for Ascended-Tuning.
 
-```javascript
-git clone https://github.com/ASCENDED-Team/asc-camera
+```shell
+git clone https://github.com/ASCENDED-Team/asc-camera src/plugins/asc-camera
 ```
