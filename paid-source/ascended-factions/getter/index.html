@@ -9,26 +9,21 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Example Command to create a Vehicle</title>
-    <meta name="title" content="Example Command to create a Vehicle">
-    <meta name="description" content="To ensure ascended-fuel is working properly you will have to follow these steps.">
+    <title>Faction | Getter</title>
+    <meta name="title" content="Faction | Getter">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://rebar-ascended.dev/open-source/ascended-fuel/usage/">
+    <link rel="canonical" href="https://rebar-ascended.dev/paid-source/ascended-factions/getter/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rebar-ascended.dev/open-source/ascended-fuel/usage/">
-    <meta property="og:title" content="Example Command to create a Vehicle">
-    <meta property="og:description" content="To ensure ascended-fuel is working properly you will have to follow these steps.">
-    <meta property="og:image" content="https://rebar-ascended.dev/static/fuel.jpg">
+    <meta property="og:url" content="https://rebar-ascended.dev/paid-source/ascended-factions/getter/">
+    <meta property="og:title" content="Faction | Getter">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rebar-ascended.dev/open-source/ascended-fuel/usage/">
-    <meta property="twitter:title" content="Example Command to create a Vehicle">
-    <meta property="twitter:description" content="To ensure ascended-fuel is working properly you will have to follow these steps.">
-    <meta property="twitter:image" content="https://rebar-ascended.dev/static/fuel.jpg">
+    <meta property="twitter:url" content="https://rebar-ascended.dev/paid-source/ascended-factions/getter/">
+    <meta property="twitter:title" content="Faction | Getter">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -37,7 +32,6 @@
     <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.772921022002" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.772921022002" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.772921022002" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -172,74 +166,12 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<p><figure class="content-center">
-    <img src="../../../static/fuel.jpg" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
-<p>To ensure ascended-fuel is working properly you will have to follow these steps.</p>
-<doc-anchor-target id="your-vehicle-creaton">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#your-vehicle-creaton">#</doc-anchor-trigger>
-        <span>Your Vehicle Creaton</span>
-    </h3>
-</doc-anchor-target>
-<ul>
-<li>Ensure you vehicle creation has setted values for ascended-fuel. You will find an example below.</li>
-</ul>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-typescript"><code v-pre class="language-typescript">await FuelAPI.createAscendedFuelPropertie(createdVehicle); // Automatically attaches values in your command if called.</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="example-command-to-create-a-vehicle" class="break-words">
+<doc-anchor-target id="faction--getter" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#example-command-to-create-a-vehicle">#</doc-anchor-trigger>
-        <span>Example Command to create a Vehicle</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#faction--getter">#</doc-anchor-trigger>
+        <span>Faction | Getter</span>
     </h1>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-typescript"><code v-pre class="language-typescript">import * as alt from &quot;alt-server&quot;;
-import { useRebar } from &quot;@Server/index.js&quot;;
-const Rebar = useRebar();
-const messenger = Rebar.messenger.useMessenger();
-const FuelAPI = await Rebar.useApi().getAsync(&quot;ascended-fuel-api&quot;);
-
-messenger.commands.register({
-  name: &quot;/addvehicle&quot;,
-  desc: &quot;Adds a vehicle and creates a database document&quot;,
-  callback: async (player: alt.Player, model: string | number) =&gt; {
-    try {
-      if (!player?.valid) return;
-      const playerData = Rebar.document.character.useCharacter(player).get();
-
-      const createdVehicle = new alt.Vehicle(
-        model,
-        player.pos.x + 3,
-        player.pos.y,
-        player.pos.z,
-        0,
-        0,
-        0
-      );
-      await Rebar.vehicle.useVehicle(createdVehicle).create(playerData._id);
-      const document = Rebar.document.vehicle.useVehicle(createdVehicle).get();
-
-      Rebar.document.vehicle
-        .useVehicleBinder(createdVehicle)
-        .bind(Rebar.document.vehicle.useVehicle(createdVehicle).get());
-      Rebar.vehicle.useVehicle(createdVehicle).sync();
-      Rebar.vehicle.useVehicle(createdVehicle).save();
-
-      alt.nextTick(async () =&gt; {
-        player.setIntoVehicle(createdVehicle, 1);
-        return true;
-      });
-      await FuelAPI.createAscendedFuelPropertie(createdVehicle);
-    } catch (error) {
-      alt.logError(error);
-    }
-  },
-});</code></pre>
-</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -249,20 +181,20 @@ messenger.commands.register({
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../open-source/ascended-fuel/installation/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../paid-source/ascended-factions/permissionmanager/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Installation</span>
+                                                <span class="block mt-1">Manager | Permission</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../open-source/ascended-fuel/api/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../paid-source/ascended-tuning/installation/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">API</span>
+                                                <span class="block mt-1">Installation</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -306,6 +238,6 @@ messenger.commands.register({
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Usage", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Faction | Getter", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

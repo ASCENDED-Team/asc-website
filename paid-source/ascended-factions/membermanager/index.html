@@ -3,38 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.772742954436">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.772921022002">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Faction API</title>
-    <meta name="title" content="Faction API">
-    <meta name="description" content="Creates a new faction with the specified name if it doesn't already exist.">
+    <title>ASC-Factions Documentation</title>
+    <meta name="title" content="ASC-Factions Documentation">
+    <meta name="description" content="The ASC-Factions module provides a set of functions for managing factions within the alt-server environment.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://rebar-ascended.dev/paid-source/ascended-factions/api/">
+    <link rel="canonical" href="https://rebar-ascended.dev/paid-source/ascended-factions/membermanager/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rebar-ascended.dev/paid-source/ascended-factions/api/">
-    <meta property="og:title" content="Faction API">
-    <meta property="og:description" content="Creates a new faction with the specified name if it doesn't already exist.">
+    <meta property="og:url" content="https://rebar-ascended.dev/paid-source/ascended-factions/membermanager/">
+    <meta property="og:title" content="ASC-Factions Documentation">
+    <meta property="og:description" content="The ASC-Factions module provides a set of functions for managing factions within the alt-server environment.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rebar-ascended.dev/paid-source/ascended-factions/api/">
-    <meta property="twitter:title" content="Faction API">
-    <meta property="twitter:description" content="Creates a new faction with the specified name if it doesn't already exist.">
+    <meta property="twitter:url" content="https://rebar-ascended.dev/paid-source/ascended-factions/membermanager/">
+    <meta property="twitter:title" content="ASC-Factions Documentation">
+    <meta property="twitter:description" content="The ASC-Factions module provides a set of functions for managing factions within the alt-server environment.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.772742954436" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.772921022002" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.772742954436" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.772921022002" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.772742954436" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.772921022002" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.772921022002" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -169,248 +170,169 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="faction-api" class="break-words">
+<doc-anchor-target id="asc-factions-documentation" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#faction-api">#</doc-anchor-trigger>
-        <span>Faction API</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#asc-factions-documentation">#</doc-anchor-trigger>
+        <span>ASC-Factions Documentation</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="general-operations">
+<doc-anchor-target id="overview">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#general-operations">#</doc-anchor-trigger>
-        <span>General Operations</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#overview">#</doc-anchor-trigger>
+        <span>Overview</span>
     </h2>
 </doc-anchor-target>
-<doc-anchor-target id="createfactionname-string">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#createfactionname-string">#</doc-anchor-trigger>
-        <span><code v-pre>createFaction(name: string)</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Creates a new faction with the specified name if it doesn&#x27;t already exist.</p>
-<ul>
-<li><strong>Parameters:</strong>
-<ul>
-<li><code v-pre>name</code> (string): The name of the faction to be created.</li>
-</ul>
-</li>
-<li><strong>Returns:</strong> Void.</li>
-<li><strong>Logs:</strong> Logs a warning if the faction already exists.</li>
-</ul>
-<hr>
-<doc-anchor-target id="deletefactionfactionname-string">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#deletefactionfactionname-string">#</doc-anchor-trigger>
-        <span><code v-pre>deleteFaction(factionName: string)</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Deletes the faction with the given name.</p>
-<ul>
-<li><strong>Parameters:</strong>
-<ul>
-<li><code v-pre>factionName</code> (string): The name of the faction to delete.</li>
-</ul>
-</li>
-<li><strong>Returns:</strong> Void.</li>
-<li><strong>Logs:</strong> Logs a warning if the faction does not exist.</li>
-</ul>
-<hr>
-<doc-anchor-target id="renamefactionfactionname-string-newname-string">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#renamefactionfactionname-string-newname-string">#</doc-anchor-trigger>
-        <span><code v-pre>renameFaction(factionName: string, newName: string)</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Renames an existing faction.</p>
-<ul>
-<li><strong>Parameters:</strong>
-<ul>
-<li><code v-pre>factionName</code> (string): The current name of the faction.</li>
-<li><code v-pre>newName</code> (string): The new name to assign to the faction.</li>
-</ul>
-</li>
-<li><strong>Returns:</strong> Void.</li>
-<li><strong>Logs:</strong> Logs a warning if the faction does not exist.</li>
-</ul>
-<hr>
-<doc-anchor-target id="clearfactionfactionname-string">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#clearfactionfactionname-string">#</doc-anchor-trigger>
-        <span><code v-pre>clearFaction(factionName: string)</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Removes all members from a faction, leaving only the leader.</p>
-<ul>
-<li><strong>Parameters:</strong>
-<ul>
-<li><code v-pre>factionName</code> (string): The name of the faction to clear.</li>
-</ul>
-</li>
-<li><strong>Returns:</strong> Void.</li>
-<li><strong>Logs:</strong> Logs a warning if the faction does not exist.</li>
-</ul>
-<doc-anchor-target id="member-management">
+<p>The <code v-pre>ASC-Factions</code> module provides a set of functions for managing factions within the <code v-pre>alt-server</code> environment. This includes creating, updating, and deleting factions, as well as managing faction members and ranks.</p>
+<doc-anchor-target id="import-the-factionapi">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#member-management">#</doc-anchor-trigger>
-        <span>Member Management</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#import-the-factionapi">#</doc-anchor-trigger>
+        <span>Import the FactionAPI</span>
     </h2>
 </doc-anchor-target>
-<doc-anchor-target id="invitememberfactionname-string-memberid-number-rankname-string">
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const FactionsAPI = useApi().getAsync(&quot;ascended-factions-api&quot;);
+
+FactionsAPI.member.someFunction();</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="functions">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#functions">#</doc-anchor-trigger>
+        <span>Functions</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="invitememberfactionname-string-memberid-number-rankname-string-isleader--false">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#invitememberfactionname-string-memberid-number-rankname-string">#</doc-anchor-trigger>
-        <span><code v-pre>inviteMember(factionName: string, memberId: number, rankName: string)</code></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#invitememberfactionname-string-memberid-number-rankname-string-isleader--false">#</doc-anchor-trigger>
+        <span><code v-pre>inviteMember(factionName: string, memberId: number, rankName: string, isLeader = false)</code></span>
     </h3>
 </doc-anchor-target>
-<p>Invites a new member to join the faction.</p>
+<p>Invites a member to a faction with the specified rank.</p>
+<doc-anchor-target id="usage">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#usage">#</doc-anchor-trigger>
+        <span>Usage:</span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">await inviteMember(&quot;FactionName&quot;, 12345, &quot;NewRank&quot;, false);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="behavior">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#behavior">#</doc-anchor-trigger>
+        <span>Behavior:</span>
+    </h4>
+</doc-anchor-target>
 <ul>
-<li><strong>Parameters:</strong>
-<ul>
-<li><code v-pre>factionName</code> (string): The name of the faction to invite the member to.</li>
-<li><code v-pre>memberId</code> (number): The ID of the player to invite.</li>
-<li><code v-pre>rankName</code> (string): The initial rank to assign to the new member.</li>
+<li>Checks if the faction exists.</li>
+<li>Checks if the rank exists in the faction.</li>
+<li>Adds the member to the faction if not already a member.</li>
+<li>Logs the invitation status.</li>
 </ul>
-</li>
-<li><strong>Returns:</strong> Void.</li>
-<li><strong>Logs:</strong> Logs a warning if the member is already in a faction.</li>
-</ul>
-<hr>
 <doc-anchor-target id="kickmembermemberid-number">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#kickmembermemberid-number">#</doc-anchor-trigger>
         <span><code v-pre>kickMember(memberId: number)</code></span>
     </h3>
 </doc-anchor-target>
-<p>Removes a member from their faction.</p>
+<p>Kicks a member from their faction.</p>
+<doc-anchor-target id="usage-1">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#usage-1">#</doc-anchor-trigger>
+        <span>Usage:</span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">await kickMember(12345);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="behavior-1">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#behavior-1">#</doc-anchor-trigger>
+        <span>Behavior:</span>
+    </h4>
+</doc-anchor-target>
 <ul>
-<li><strong>Parameters:</strong>
-<ul>
-<li><code v-pre>memberId</code> (number): The ID of the member to kick.</li>
+<li>Finds the member in the factions.</li>
+<li>Removes the member from the faction.</li>
+<li>Logs the removal status.</li>
 </ul>
-</li>
-<li><strong>Returns:</strong> Void.</li>
-<li><strong>Logs:</strong> Logs a warning if the member is not found in any faction.</li>
-</ul>
-<hr>
-<doc-anchor-target id="promotemembermemberid-number-newrank-string">
+<doc-anchor-target id="promotememberfactionname-string-memberid-number">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#promotemembermemberid-number-newrank-string">#</doc-anchor-trigger>
-        <span><code v-pre>promoteMember(memberId: number, newRank: string)</code></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#promotememberfactionname-string-memberid-number">#</doc-anchor-trigger>
+        <span><code v-pre>promoteMember(factionName: string, memberId: number)</code></span>
     </h3>
 </doc-anchor-target>
-<p>Promotes a member within their faction to a higher rank.</p>
+<p>Promotes a member to the next rank in their faction.</p>
+<doc-anchor-target id="usage-2">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#usage-2">#</doc-anchor-trigger>
+        <span>Usage:</span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">await promoteMember(&quot;FactionName&quot;, 12345);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="behavior-2">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#behavior-2">#</doc-anchor-trigger>
+        <span>Behavior:</span>
+    </h4>
+</doc-anchor-target>
 <ul>
-<li><strong>Parameters:</strong>
-<ul>
-<li><code v-pre>memberId</code> (number): The ID of the member to promote.</li>
-<li><code v-pre>newRank</code> (string): The new rank to assign to the member.</li>
+<li>Checks if the faction exists.</li>
+<li>Promotes the member to the next rank.</li>
+<li>Logs the promotion status.</li>
 </ul>
-</li>
-<li><strong>Returns:</strong> Void.</li>
-<li><strong>Logs:</strong> Logs a warning if the member is not found in any faction.</li>
-</ul>
-<hr>
-<doc-anchor-target id="demotemembermemberid-number-newrank-string">
+<doc-anchor-target id="demotememberfactionname-string-memberid-number">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#demotemembermemberid-number-newrank-string">#</doc-anchor-trigger>
-        <span><code v-pre>demoteMember(memberId: number, newRank: string)</code></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#demotememberfactionname-string-memberid-number">#</doc-anchor-trigger>
+        <span><code v-pre>demoteMember(factionName: string, memberId: number)</code></span>
     </h3>
 </doc-anchor-target>
-<p>Demotes a member within their faction to a lower rank.</p>
+<p>Demotes a member to the previous rank in their faction.</p>
+<doc-anchor-target id="usage-3">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#usage-3">#</doc-anchor-trigger>
+        <span>Usage:</span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">await demoteMember(&quot;FactionName&quot;, 12345);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="behavior-3">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#behavior-3">#</doc-anchor-trigger>
+        <span>Behavior:</span>
+    </h4>
+</doc-anchor-target>
 <ul>
-<li><strong>Parameters:</strong>
-<ul>
-<li><code v-pre>memberId</code> (number): The ID of the member to demote.</li>
-<li><code v-pre>newRank</code> (string): The new rank to assign to the member.</li>
+<li>Checks if the faction exists.</li>
+<li>Demotes the member to the previous rank.</li>
+<li>Logs the demotion status.</li>
 </ul>
-</li>
-<li><strong>Returns:</strong> Void.</li>
-<li><strong>Logs:</strong> Logs a warning if the member is not found in any faction.</li>
-</ul>
-<doc-anchor-target id="utility-functions">
+<doc-anchor-target id="database-initialization">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#utility-functions">#</doc-anchor-trigger>
-        <span>Utility Functions</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#database-initialization">#</doc-anchor-trigger>
+        <span>Database Initialization</span>
     </h2>
 </doc-anchor-target>
-<doc-anchor-target id="getplayersfactionplayerid-number-promisefaction--null">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#getplayersfactionplayerid-number-promisefaction--null">#</doc-anchor-trigger>
-        <span><code v-pre>getPlayersFaction(playerId: number): Promise&lt;Faction | null&gt;</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Retrieves the faction of a player based on their ID.</p>
-<ul>
-<li><strong>Parameters:</strong>
-<ul>
-<li><code v-pre>playerId</code> (number): The ID of the player whose faction is to be retrieved.</li>
-</ul>
-</li>
-<li><strong>Returns:</strong> A <code v-pre>Promise</code> resolving to the <code v-pre>Faction</code> object if the player is in a faction, otherwise <code v-pre>null</code>.</li>
-<li><strong>Logs:</strong> Logs a warning if the player is not a member of any faction.</li>
-</ul>
-<doc-anchor-target id="internal-functions">
+<p>Ensure the factions collection is created:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">await Database.createCollection(FactionsConfig.dbCollection);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="logging">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#internal-functions">#</doc-anchor-trigger>
-        <span>Internal Functions</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#logging">#</doc-anchor-trigger>
+        <span>Logging</span>
     </h2>
 </doc-anchor-target>
-<doc-anchor-target id="getallfactions-promisefaction">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#getallfactions-promisefaction">#</doc-anchor-trigger>
-        <span><code v-pre>getAllFactions(): Promise&lt;Faction[]&gt;</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Retrieves all factions from the database.</p>
-<ul>
-<li><strong>Returns:</strong> A <code v-pre>Promise</code> resolving to an array of <code v-pre>Faction</code> objects.</li>
-<li><strong>Logs:</strong> Logs a warning if no factions are found in the database.</li>
-</ul>
-<hr>
-<doc-anchor-target id="getfactionbynamefactionname-string-promisefaction--undefined">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#getfactionbynamefactionname-string-promisefaction--undefined">#</doc-anchor-trigger>
-        <span><code v-pre>getFactionByName(factionName: string): Promise&lt;Faction | undefined&gt;</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Retrieves a faction from the database by its name.</p>
-<ul>
-<li><strong>Parameters:</strong>
-<ul>
-<li><code v-pre>factionName</code> (string): The name of the faction to retrieve.</li>
-</ul>
-</li>
-<li><strong>Returns:</strong> A <code v-pre>Promise</code> resolving to the <code v-pre>Faction</code> object if found, otherwise <code v-pre>undefined</code>.</li>
-<li><strong>Logs:</strong> Logs a warning if the faction with the specified name is not found.</li>
-</ul>
-<hr>
-<doc-anchor-target id="clearfactionscache">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#clearfactionscache">#</doc-anchor-trigger>
-        <span><code v-pre>clearFactionsCache()</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Clears the cached factions data.</p>
-<ul>
-<li><strong>Returns:</strong> Void.</li>
-<li><strong>Notes:</strong> Called after database operations (create, update, delete) to ensure data consistency.</li>
-</ul>
-<doc-anchor-target id="initialization">
+<p>The module uses <code v-pre>alt.logWarning</code> to log various statuses and errors throughout the operations.</p>
+<doc-anchor-target id="summary">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#initialization">#</doc-anchor-trigger>
-        <span>Initialization</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#summary">#</doc-anchor-trigger>
+        <span>Summary</span>
     </h2>
 </doc-anchor-target>
-<doc-anchor-target id="createfactionscollection">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#createfactionscollection">#</doc-anchor-trigger>
-        <span><code v-pre>createFactionsCollection()</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Creates the database collection for factions using the configuration.</p>
-<ul>
-<li><strong>Returns:</strong> Void.</li>
-<li><strong>Notes:</strong> Should be called during application startup to ensure the database collection exists.</li>
-</ul>
+<p>This module provides comprehensive functionality for managing factions in <code v-pre>alt-server</code>, including creation, updating, and deletion of factions, as well as member and rank management. It leverages a caching mechanism to optimize performance and ensure efficient data retrieval.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -420,20 +342,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../open-source/ascended-notification/changelog/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../paid-source/ascended-factions/factionmanager/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Changelog</span>
+                                                <span class="block mt-1">Manager | Faction</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../paid-source/ascended-tuning/installation/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../paid-source/ascended-factions/permissionmanager/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Installation</span>
+                                                <span class="block mt-1">Manager | Permission</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -477,6 +399,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Faction API", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Manager | Member", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
