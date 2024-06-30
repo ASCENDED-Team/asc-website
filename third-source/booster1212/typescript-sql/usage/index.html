@@ -9,31 +9,33 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Changelog</title>
-    <meta name="title" content="Changelog">
+    <title>TypeScriptSQL Class Documentation</title>
+    <meta name="title" content="TypeScriptSQL Class Documentation">
+    <meta name="description" content="The TypeScriptSQL class provides a convenient wrapper around MySQL operations using promises.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://rebar-ascended.dev/open-source/ascended-inventory-lite/changelog/">
+    <link rel="canonical" href="https://rebar-ascended.dev/third-source/booster1212/typescript-sql/usage/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rebar-ascended.dev/open-source/ascended-inventory-lite/changelog/">
-    <meta property="og:title" content="Changelog">
-    <meta property="og:image" content="https://rebar-ascended.dev/static/inventory-lite.jpg">
+    <meta property="og:url" content="https://rebar-ascended.dev/third-source/booster1212/typescript-sql/usage/">
+    <meta property="og:title" content="TypeScriptSQL Class Documentation">
+    <meta property="og:description" content="The TypeScriptSQL class provides a convenient wrapper around MySQL operations using promises.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rebar-ascended.dev/open-source/ascended-inventory-lite/changelog/">
-    <meta property="twitter:title" content="Changelog">
-    <meta property="twitter:image" content="https://rebar-ascended.dev/static/inventory-lite.jpg">
+    <meta property="twitter:url" content="https://rebar-ascended.dev/third-source/booster1212/typescript-sql/usage/">
+    <meta property="twitter:title" content="TypeScriptSQL Class Documentation">
+    <meta property="twitter:description" content="The TypeScriptSQL class provides a convenient wrapper around MySQL operations using promises.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.773087636635" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.773087636635" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.773087636635" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.773087636635" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.773087636635" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.773087636635" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=3.5.0.773087636635" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -48,7 +50,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
+                        <a id="docs-site-logo" href="../../../../" class="flex items-center leading-snug text-2xl">
                             <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">ASCENDED</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Documentation</span>
                     </div>
@@ -168,17 +170,352 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="changelog" class="break-words">
+<doc-anchor-target id="typescriptsql-class-documentation" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#changelog">#</doc-anchor-trigger>
-        <span>Changelog</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#typescriptsql-class-documentation">#</doc-anchor-trigger>
+        <span>TypeScriptSQL Class Documentation</span>
     </h1>
 </doc-anchor-target>
-<p><figure class="content-center">
-    <img src="../../../static/inventory-lite.jpg" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
+<doc-anchor-target id="overview">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#overview">#</doc-anchor-trigger>
+        <span>Overview</span>
+    </h2>
+</doc-anchor-target>
+<p>The <code v-pre>TypeScriptSQL</code> class provides a convenient wrapper around MySQL operations using promises. It allows for basic CRUD operations, table creation, and connection handling.</p>
+<doc-anchor-target id="class-definition">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#class-definition">#</doc-anchor-trigger>
+        <span>Class Definition</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">import * as mysql from &quot;mysql&quot;;
+
+export class TypeScriptSQL {
+  private connection: mysql.Connection;
+
+  constructor(config: mysql.ConnectionConfig) {
+    this.connection = mysql.createConnection(config);
+    this.connection.connect((err) =&gt; {
+      if (err) {
+        console.error(&quot;Error connecting to the database:&quot;, err.stack);
+        return;
+      }
+      console.log(&quot;Connected to the database as ID&quot;, this.connection.threadId);
+    });
+  }
+
+  query(sql: string, args?: any[]): Promise&lt;any&gt; {
+    /* ... */
+  }
+  createTable(table: string, tableDefinition: string): Promise&lt;any&gt; {
+    /* ... */
+  }
+  create(table: string, data: object): Promise&lt;any&gt; {
+    /* ... */
+  }
+  read(table: string, conditions?: object): Promise&lt;any&gt; {
+    /* ... */
+  }
+  createOrUpdate(table: string, data: object): Promise&lt;any&gt; {
+    /* ... */
+  }
+  update(table: string, data: object, conditions: object): Promise&lt;any&gt; {
+    /* ... */
+  }
+  delete(table: string, conditions: object): Promise&lt;any&gt; {
+    /* ... */
+  }
+  close(): Promise&lt;void&gt; {
+    /* ... */
+  }
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="methods">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#methods">#</doc-anchor-trigger>
+        <span>Methods</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="constructor">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#constructor">#</doc-anchor-trigger>
+        <span>Constructor</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">constructor(config: mysql.ConnectionConfig)</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><strong>Description</strong>: Initializes a new instance of the <code v-pre>TypeScriptSQL</code> class and establishes a database connection.</li>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code v-pre>config</code> (mysql.ConnectionConfig): The configuration object for the database connection.</li>
+</ul>
+</li>
+</ul>
+<doc-anchor-target id="query">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#query">#</doc-anchor-trigger>
+        <span>query</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">query(sql: string, args?: any[]): Promise&lt;any&gt;</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><strong>Description</strong>: Executes a SQL query.</li>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code v-pre>sql</code> (string): The SQL query string.</li>
+<li><code v-pre>args</code> (any[], optional): An array of arguments for parameterized queries.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: A promise that resolves with the query results.</li>
+</ul>
+<doc-anchor-target id="createtable">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#createtable">#</doc-anchor-trigger>
+        <span>createTable</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">createTable(table: string, tableDefinition: string): Promise&lt;any&gt;</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><strong>Description</strong>: Creates a table if it does not exist.</li>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code v-pre>table</code> (string): The name of the table.</li>
+<li><code v-pre>tableDefinition</code> (string): The SQL table definition.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: A promise that resolves when the table is created.</li>
+</ul>
+<doc-anchor-target id="create">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#create">#</doc-anchor-trigger>
+        <span>create</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">create(table: string, data: object): Promise&lt;any&gt;</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><strong>Description</strong>: Inserts a new record into a table.</li>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code v-pre>table</code> (string): The name of the table.</li>
+<li><code v-pre>data</code> (object): An object representing the record to insert.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: A promise that resolves when the record is inserted.</li>
+</ul>
+<doc-anchor-target id="read">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#read">#</doc-anchor-trigger>
+        <span>read</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">read(table: string, conditions?: object): Promise&lt;any&gt;</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><strong>Description</strong>: Reads records from a table.</li>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code v-pre>table</code> (string): The name of the table.</li>
+<li><code v-pre>conditions</code> (object, optional): An object representing query conditions.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: A promise that resolves with the query results.</li>
+</ul>
+<doc-anchor-target id="createorupdate">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#createorupdate">#</doc-anchor-trigger>
+        <span>createOrUpdate</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">createOrUpdate(table: string, data: object): Promise&lt;any&gt;</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><strong>Description</strong>: Inserts a new record or updates an existing record.</li>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code v-pre>table</code> (string): The name of the table.</li>
+<li><code v-pre>data</code> (object): An object representing the record to insert or update.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: A promise that resolves when the operation is complete.</li>
+</ul>
+<doc-anchor-target id="update">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#update">#</doc-anchor-trigger>
+        <span>update</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">update(table: string, data: object, conditions: object): Promise&lt;any&gt;</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><strong>Description</strong>: Updates existing records in a table.</li>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code v-pre>table</code> (string): The name of the table.</li>
+<li><code v-pre>data</code> (object): An object representing the new data.</li>
+<li><code v-pre>conditions</code> (object): An object representing the query conditions.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: A promise that resolves when the records are updated.</li>
+</ul>
+<doc-anchor-target id="delete">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#delete">#</doc-anchor-trigger>
+        <span>delete</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">delete(table: string, conditions: object): Promise&lt;any&gt;</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><strong>Description</strong>: Deletes records from a table.</li>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code v-pre>table</code> (string): The name of the table.</li>
+<li><code v-pre>conditions</code> (object): An object representing the query conditions.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: A promise that resolves when the records are deleted.</li>
+</ul>
+<doc-anchor-target id="close">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#close">#</doc-anchor-trigger>
+        <span>close</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">close(): Promise&lt;void&gt;</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><strong>Description</strong>: Closes the database connection.</li>
+<li><strong>Returns</strong>: A promise that resolves when the connection is closed.</li>
+</ul>
+<doc-anchor-target id="examples">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#examples">#</doc-anchor-trigger>
+        <span>Examples</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="setting-up-the-connection">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#setting-up-the-connection">#</doc-anchor-trigger>
+        <span>Setting up the Connection</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">import { TypeScriptSQL } from &quot;./TypeScriptSQL&quot;;
+import * as mysql from &quot;mysql&quot;;
+
+const config: mysql.ConnectionConfig = {
+  host: &quot;localhost&quot;,
+  user: &quot;your-username&quot;,
+  password: &quot;your-password&quot;,
+  database: &quot;your-database&quot;,
+};
+
+const db = new TypeScriptSQL(config);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="creating-a-table">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#creating-a-table">#</doc-anchor-trigger>
+        <span>Creating a Table</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">const tableDefinition = `
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  age INT NOT NULL
+`;
+
+db.createTable(&quot;users&quot;, tableDefinition)
+  .then(() =&gt; console.log(&quot;Table created successfully&quot;))
+  .catch((err) =&gt; console.error(&quot;Error creating table:&quot;, err));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="inserting-a-record">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#inserting-a-record">#</doc-anchor-trigger>
+        <span>Inserting a Record</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">const user = {
+  name: &quot;John Doe&quot;,
+  age: 30,
+};
+
+db.create(&quot;users&quot;, user)
+  .then(() =&gt; console.log(&quot;User created successfully&quot;))
+  .catch((err) =&gt; console.error(&quot;Error creating user:&quot;, err));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="reading-records">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#reading-records">#</doc-anchor-trigger>
+        <span>Reading Records</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">db.read(&quot;users&quot;)
+  .then((results) =&gt; console.log(&quot;Users:&quot;, results))
+  .catch((err) =&gt; console.error(&quot;Error reading users:&quot;, err));
+
+// Reading with conditions
+const conditions = { age: 30 };
+
+db.read(&quot;users&quot;, conditions)
+  .then((results) =&gt; console.log(&quot;Users aged 30:&quot;, results))
+  .catch((err) =&gt; console.error(&quot;Error reading users:&quot;, err));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="updating-records">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#updating-records">#</doc-anchor-trigger>
+        <span>Updating Records</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">const data = { name: &quot;Jane Doe&quot;, age: 25 };
+const conditions = { id: 1 };
+
+db.update(&quot;users&quot;, data, conditions)
+  .then(() =&gt; console.log(&quot;User updated successfully&quot;))
+  .catch((err) =&gt; console.error(&quot;Error updating user:&quot;, err));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="deleting-records">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#deleting-records">#</doc-anchor-trigger>
+        <span>Deleting Records</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">const conditions = { id: 1 };
+
+db.delete(&quot;users&quot;, conditions)
+  .then(() =&gt; console.log(&quot;User deleted successfully&quot;))
+  .catch((err) =&gt; console.error(&quot;Error deleting user:&quot;, err));</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="closing-the-connection">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#closing-the-connection">#</doc-anchor-trigger>
+        <span>Closing the Connection</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">db.close()
+  .then(() =&gt; console.log(&quot;Database connection closed&quot;))
+  .catch((err) =&gt; console.error(&quot;Error closing connection:&quot;, err));</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -188,23 +525,16 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../open-source/ascended-inventory-lite/config/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../../paid-source/ascended-tuning/usage/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Config</span>
+                                                <span class="block mt-1">Usage</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../open-source/ascended-notification/installation/">
-                                            <span>
-                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Installation</span>
-                                            </span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                                        </a>
                                     </div>
                                 </nav>
                             </footer>
@@ -245,6 +575,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Changelog", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Documentation", level: 4, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
