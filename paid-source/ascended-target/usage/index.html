@@ -9,23 +9,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Changelog</title>
-    <meta name="title" content="Changelog">
+    <title>Ascended Target System</title>
+    <meta name="title" content="Ascended Target System">
+    <meta name="description" content="The Ascended Target System is a robust interaction framework designed for alt:V, allowing developers to create dynamic and interactive experiences...">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://rebar-ascended.dev/open-source/ascended-notification/changelog/">
+    <link rel="canonical" href="https://rebar-ascended.dev/paid-source/ascended-target/usage/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rebar-ascended.dev/open-source/ascended-notification/changelog/">
-    <meta property="og:title" content="Changelog">
-    <meta property="og:image" content="https://rebar-ascended.dev/static/notification.jpg">
+    <meta property="og:url" content="https://rebar-ascended.dev/paid-source/ascended-target/usage/">
+    <meta property="og:title" content="Ascended Target System">
+    <meta property="og:description" content="The Ascended Target System is a robust interaction framework designed for alt:V, allowing developers to create dynamic and interactive experiences...">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rebar-ascended.dev/open-source/ascended-notification/changelog/">
-    <meta property="twitter:title" content="Changelog">
-    <meta property="twitter:image" content="https://rebar-ascended.dev/static/notification.jpg">
+    <meta property="twitter:url" content="https://rebar-ascended.dev/paid-source/ascended-target/usage/">
+    <meta property="twitter:title" content="Ascended Target System">
+    <meta property="twitter:description" content="The Ascended Target System is a robust interaction framework designed for alt:V, allowing developers to create dynamic and interactive experiences...">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -34,6 +35,7 @@
     <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.778096642304" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.778096642304" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.778096642304" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -168,17 +170,167 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="changelog" class="break-words">
+<doc-anchor-target id="ascended-target-system" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#changelog">#</doc-anchor-trigger>
-        <span>Changelog</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ascended-target-system">#</doc-anchor-trigger>
+        <span>Ascended Target System</span>
     </h1>
 </doc-anchor-target>
-<p><figure class="content-center">
-    <img src="../../../static/notification.jpg" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
+<p>The Ascended Target System is a robust interaction framework designed for alt:V, allowing developers to create dynamic and interactive experiences within their game world. This system enables the creation of both entity-based and position-based interactions, providing a flexible solution for various gameplay scenarios.</p>
+<doc-anchor-target id="table-of-contents">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#table-of-contents">#</doc-anchor-trigger>
+        <span>Table of Contents</span>
+    </h2>
+</doc-anchor-target>
+<ol>
+<li><doc-anchor-trigger to="#key-components">Key Components</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#events">Events</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#api">API</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#types">Types</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#client-side-implementation">Client-Side Implementation</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#usage-examples">Usage Examples</doc-anchor-trigger></li>
+</ol>
+<doc-anchor-target id="key-components">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#key-components">#</doc-anchor-trigger>
+        <span>Key Components</span>
+    </h2>
+</doc-anchor-target>
+<p>The Ascended Target System consists of several key components:</p>
+<ul>
+<li><strong>Server-side API</strong>: Manages the creation and destruction of interactions.</li>
+<li><strong>Client-side Vue component</strong>: Renders the interaction UI.</li>
+<li><strong>Shared types and events</strong>: Ensures consistency between server and client.</li>
+</ul>
+<doc-anchor-target id="events">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#events">#</doc-anchor-trigger>
+        <span>Events</span>
+    </h2>
+</doc-anchor-target>
+<p>The system uses a set of predefined events for communication between the server and client:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">export const TARGET_EVENTS = {
+  ToClient: {
+    SET_ENTITY_INTERACTIONS: &quot;asc-target:set-entity-interactions&quot;,
+    SET_POSITION_INTERACTION: &quot;asc-target:set-position-interactions&quot;,
+    REMOVE_POSITION_INTERACTION: &quot;asc-target:remove-position-interaction&quot;,
+  },
+  ToServer: {
+    CALLBACK: &quot;asc-target:callback&quot;,
+  },
+  WebView: {
+    POSITIONS: &quot;asc-target:positions&quot;,
+    POSITION_REMOVE: &quot;asc-target:position-remove&quot;,
+  },
+};</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="api">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#api">#</doc-anchor-trigger>
+        <span>API</span>
+    </h2>
+</doc-anchor-target>
+<p>The Ascended Target API provides the following main functions:</p>
+<ul>
+<li><code v-pre>createModelInteraction</code>: Creates an interaction for a specific entity model.</li>
+<li><code v-pre>createPosInteraction</code>: Creates a position-based interaction.</li>
+<li><code v-pre>destroyPosInteraction</code>: Removes a position-based interaction.</li>
+<li><code v-pre>getTargetEvents</code>: Returns the TARGET_EVENTS object.</li>
+<li><code v-pre>getAvailableObjects</code>: Returns a list of predefined interactive objects.</li>
+</ul>
+<doc-anchor-target id="types">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#types">#</doc-anchor-trigger>
+        <span>Types</span>
+    </h2>
+</doc-anchor-target>
+<p>The system uses several TypeScript types to ensure type safety:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">type EntityID = number;
+type Position = { x: number; y: number; z: number };
+
+export type target_interaction = {
+  uid: string;
+  id: EntityID | Position | string;
+  model: number;
+  canInteract: boolean;
+  currentPos?: alt.Vector3;
+  originalPos: alt.Vector3;
+  screenPos: alt.Vector3 | null;
+  interactions: Array&lt;target_buttons&gt;;
+};
+
+export type target_buttons = {
+  uid: string;
+  text: string;
+};
+
+export type global_interactions = {
+  uid: string;
+  model?: number;
+  pos?: alt.Vector3;
+  interactions: {
+    uid: string;
+    text: string;
+    handle: InteractionHandler;
+  }[];
+};</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="client-side-implementation">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#client-side-implementation">#</doc-anchor-trigger>
+        <span>Client-Side Implementation</span>
+    </h2>
+</doc-anchor-target>
+<p>The client-side is implemented using a Vue component (<code v-pre>Target.vue</code>) that renders the interaction UI. Key features include:</p>
+<ul>
+<li>Dynamic rendering of interaction points and buttons</li>
+<li>Keyboard navigation for selecting interactions</li>
+<li>Smooth transitions for interaction visibility</li>
+</ul>
+<doc-anchor-target id="usage-examples">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#usage-examples">#</doc-anchor-trigger>
+        <span>Usage Examples</span>
+    </h2>
+</doc-anchor-target>
+<p>Here&#x27;s an example of how to create a position-based interaction:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">const pos = new alt.Vector3(player.pos.x, player.pos.y, player.pos.z + 0.5);
+const interactions = [
+  {
+    text: &quot;Test Interaction&quot;,
+    uid: utility.uid.generate(),
+    handle: (player: alt.Player) =&gt; {
+      console.log(`Test Interaction executed`);
+    },
+  },
+];
+
+TargetAPI.createPosInteraction(pos, interactions, true);</code></pre>
+</doc-codeblock></div>
+<p>And here&#x27;s how to create an entity-based interaction:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">TargetAPI.createModelInteraction(player, {
+  uid: utility.uid.generate(),
+  model: alt.hash(entry),
+  interactions: [
+    {
+      text: &quot;Open Banking&quot;,
+      uid: utility.uid.generate(),
+      handle: bankingTest,
+    },
+    {
+      text: &quot;Open Tuner&quot;,
+      uid: utility.uid.generate(),
+      handle: tunerTest,
+    },
+  ],
+});</code></pre>
+</doc-codeblock></div>
+<p>This documentation provides an overview of the Ascended Target System. For more detailed information on specific components or usage, please refer to the individual source files or reach out to the development team.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -188,17 +340,17 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../open-source/ascended-notification/config/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../paid-source/ascended-target/installation/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Config</span>
+                                                <span class="block mt-1">Installation</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../paid-source/ascended-factions/installation/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../paid-source/ascended-tuning/installation/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
                                                 <span class="block mt-1">Installation</span>
@@ -245,6 +397,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Changelog", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Usage", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
