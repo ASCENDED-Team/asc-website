@@ -15,44 +15,69 @@ const ServerConfig = Rebar.useServerConfig();
 
 ServerConfig.set("disableVehicleEngineAutoStart", true); // Disables Engine Auto Start
 
-export const FUEL_TYPES = {
-  Gasolin: "Gasolin",
-  Diesel: "Diesel",
-  Electric: "Electric",
-  Kerosin: "Kerosin",
+export enum FuelType {
+  Gasoline = "Gasoline",
+  Diesel = "Diesel",
+  Electric = "Electric",
+  Kerosene = "Kerosene",
+}
+
+class FuelProperties {
+  constructor(public name: FuelType) {}
+}
+
+export const FUEL_TYPES = new Map<FuelType, FuelProperties>([
+  [FuelType.Gasoline, new FuelProperties(FuelType.Gasoline)],
+  [FuelType.Diesel, new FuelProperties(FuelType.Diesel)],
+  [FuelType.Electric, new FuelProperties(FuelType.Electric)],
+  [FuelType.Kerosene, new FuelProperties(FuelType.Kerosene)],
+]);
+
+export class FuelSettings {
+  checkForUpdates = true;
+  AscHUD = false;
+  ASCHUDPro = true;
+  AscNotification = false;
+  Debug = true;
+  DefaultConsumption = 0.002;
+  DefaultFuel: FuelType = FuelType.Diesel;
+  DefaultMax = 60;
+  enableSound = false;
+}
+
+export const FUEL_SETTINGS = new FuelSettings();
+
+class VehicleConsumptionConfig {
+  constructor(
+    public consume: number,
+    public type: FuelType,
+    public maxFuel: number
+  ) {}
+}
+
+export const VEHICLE_FUEL_CONFIG: {
+  [modelName: string]: VehicleConsumptionConfig;
+} = {
+  adder: new VehicleConsumptionConfig(0.006, FuelType.Gasoline, 55),
+  sultanrs: new VehicleConsumptionConfig(0.004, FuelType.Gasoline, 60),
+  blista: new VehicleConsumptionConfig(0.003, FuelType.Gasoline, 40),
+  panto: new VehicleConsumptionConfig(0.02, FuelType.Gasoline, 20),
+  // ... add more vehicles here ...
 };
 
-export const FUEL_SETTINGS = {
-  checkForUpdates: true, // Check automatically for updates through asc-versioncheck api?
-  AscHUD: true, // Use with our HUD? (https://github.com/ASCENDED-Team/asc-hud)
-  AscNotification: false, // Use Notification System? (https://github.com/ASCENDED-Team/asc-notifications)
-  Debug: true, // Debug for logs and stuff?
-  DefaultConsumption: 0.003, // Default consumption if none is set in the the array below.
-  DefaultFuel: FUEL_TYPES.Diesel, // Default fuel_type if none is set in the array below.
-  DefaultMax: 30, // Default max_fuel if none is set in the array below.
-  enableSound: false, // For toggle_engine you can enable this and replace the sound in /sounds folder.
-};
+export function getVehicleConsumption(
+  modelName: string
+): VehicleConsumptionConfig {
+  const lowerCaseModelName = modelName.toLowerCase();
 
-export const VEHICLE_CONSUMPTION: Array<{
-  model: number;
-  consume: number;
-  type?: string;
-  maxFuel: number;
-}> = [
-  {
-    model: alt.hash("t20"),
-    consume: 0.009,
-    type: FUEL_TYPES.Diesel, // Optional set fuel_type individually per vehicle. Otherwise it uses DEFAULT_FUEL.
-    maxFuel: 40,
-  },
-  {
-    model: alt.hash("zentorno"),
-    consume: 0.0035,
-    type: FUEL_TYPES.Gasolin,
-    maxFuel: 30,
-  },
-  { model: alt.hash("panto"), consume: 0.05, maxFuel: 15 },
-  { model: alt.hash("italirsx"), consume: 0.1, maxFuel: 30 },
-  { model: alt.hash("krieger"), consume: 0.01, maxFuel: 50 },
-];
+  if (lowerCaseModelName in VEHICLE_FUEL_CONFIG) {
+    return VEHICLE_FUEL_CONFIG[lowerCaseModelName];
+  }
+
+  return new VehicleConsumptionConfig(
+    FUEL_SETTINGS.DefaultConsumption,
+    FUEL_SETTINGS.DefaultFuel,
+    FUEL_SETTINGS.DefaultMax
+  );
+}
 ```
