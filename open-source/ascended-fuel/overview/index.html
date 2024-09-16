@@ -3,41 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.778096642304">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.779821632751">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Example Command to create a Vehicle</title>
-    <meta name="title" content="Example Command to create a Vehicle">
-    <meta name="description" content="To ensure ascended-fuel is working properly you will have to follow these steps.">
+    <title>Ascended Fuel System Overview</title>
+    <meta name="title" content="Ascended Fuel System Overview">
+    <meta name="description" content="The Ascended Fuel System for Alt:V servers provides advanced vehicle fuel management features, including real-time fuel consumption tracking, fuel...">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://rebar-ascended.dev/open-source/ascended-fuel/usage/">
+    <link rel="canonical" href="https://rebar-ascended.dev/open-source/ascended-fuel/overview/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rebar-ascended.dev/open-source/ascended-fuel/usage/">
-    <meta property="og:title" content="Example Command to create a Vehicle">
-    <meta property="og:description" content="To ensure ascended-fuel is working properly you will have to follow these steps.">
+    <meta property="og:url" content="https://rebar-ascended.dev/open-source/ascended-fuel/overview/">
+    <meta property="og:title" content="Ascended Fuel System Overview">
+    <meta property="og:description" content="The Ascended Fuel System for Alt:V servers provides advanced vehicle fuel management features, including real-time fuel consumption tracking, fuel...">
     <meta property="og:image" content="https://rebar-ascended.dev/static/fuel.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rebar-ascended.dev/open-source/ascended-fuel/usage/">
-    <meta property="twitter:title" content="Example Command to create a Vehicle">
-    <meta property="twitter:description" content="To ensure ascended-fuel is working properly you will have to follow these steps.">
+    <meta property="twitter:url" content="https://rebar-ascended.dev/open-source/ascended-fuel/overview/">
+    <meta property="twitter:title" content="Ascended Fuel System Overview">
+    <meta property="twitter:description" content="The Ascended Fuel System for Alt:V servers provides advanced vehicle fuel management features, including real-time fuel consumption tracking, fuel...">
     <meta property="twitter:image" content="https://rebar-ascended.dev/static/fuel.jpg">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.778096642304" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.779821632751" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.778096642304" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.779821632751" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.778096642304" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.778096642304" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.779821632751" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -177,69 +176,131 @@
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
-<p>To ensure ascended-fuel is working properly you will have to follow these steps.</p>
-<doc-anchor-target id="your-vehicle-creaton">
+<doc-anchor-target id="ascended-fuel-system-overview" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ascended-fuel-system-overview">#</doc-anchor-trigger>
+        <span>Ascended Fuel System Overview</span>
+    </h1>
+</doc-anchor-target>
+<p>The <strong>Ascended Fuel System</strong> for Alt:V servers provides advanced vehicle fuel management features, including real-time fuel consumption tracking, fuel type handling, and interaction with the player&#x27;s vehicle engine.</p>
+<doc-anchor-target id="features">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#features">#</doc-anchor-trigger>
+        <span>Features</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="1-fuel-properties-for-vehicles">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#your-vehicle-creaton">#</doc-anchor-trigger>
-        <span>Your Vehicle Creaton</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-fuel-properties-for-vehicles">#</doc-anchor-trigger>
+        <span>1. Fuel Properties for Vehicles</span>
     </h3>
 </doc-anchor-target>
 <ul>
-<li>Ensure you vehicle creation has setted values for ascended-fuel. You will find an example below.</li>
+<li>Assigns fuel-related properties such as consumption rate, max capacity, and fuel type.</li>
+<li>Managed using the Rebar system.</li>
 </ul>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-typescript"><code v-pre class="language-typescript">await FuelAPI.createAscendedFuelPropertie(createdVehicle); // Automatically attaches values in your command if called.</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="example-command-to-create-a-vehicle" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#example-command-to-create-a-vehicle">#</doc-anchor-trigger>
-        <span>Example Command to create a Vehicle</span>
-    </h1>
+<doc-anchor-target id="2-fuel-consumption-tracking">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#2-fuel-consumption-tracking">#</doc-anchor-trigger>
+        <span>2. Fuel Consumption Tracking</span>
+    </h3>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-typescript"><code v-pre class="language-typescript">import * as alt from &quot;alt-server&quot;;
-import { useRebar } from &quot;@Server/index.js&quot;;
-const Rebar = useRebar();
-const messenger = Rebar.messenger.useMessenger();
-const FuelAPI = await Rebar.useApi().getAsync(&quot;ascended-fuel-api&quot;);
-
-messenger.commands.register({
-  name: &quot;/addvehicle&quot;,
-  desc: &quot;Adds a vehicle and creates a database document&quot;,
-  callback: async (player: alt.Player, model: string | number) =&gt; {
-    try {
-      if (!player?.valid) return;
-      const playerData = Rebar.document.character.useCharacter(player).get();
-
-      const createdVehicle = new alt.Vehicle(
-        model,
-        player.pos.x + 3,
-        player.pos.y,
-        player.pos.z,
-        0,
-        0,
-        0
-      );
-      await Rebar.vehicle.useVehicle(createdVehicle).create(playerData._id);
-      const document = Rebar.document.vehicle.useVehicle(createdVehicle).get();
-
-      Rebar.document.vehicle
-        .useVehicleBinder(createdVehicle)
-        .bind(Rebar.document.vehicle.useVehicle(createdVehicle).get());
-      Rebar.vehicle.useVehicle(createdVehicle).sync();
-      Rebar.vehicle.useVehicle(createdVehicle).save();
-
-      alt.nextTick(async () =&gt; {
-        player.setIntoVehicle(createdVehicle, 1);
-        return true;
-      });
-      await FuelAPI.createAscendedFuelPropertie(createdVehicle);
-    } catch (error) {
-      alt.logError(error);
-    }
-  },
-});</code></pre>
-</doc-codeblock></div>
+<ul>
+<li>Tracks vehicle fuel consumption based on distance traveled and speed in real-time.</li>
+</ul>
+<doc-anchor-target id="3-fuel-refill">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3-fuel-refill">#</doc-anchor-trigger>
+        <span>3. Fuel Refill</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Allows players to refill their vehicles or nearby vehicles with a specified amount or fully.</li>
+</ul>
+<doc-anchor-target id="4-fuel-type-handling">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#4-fuel-type-handling">#</doc-anchor-trigger>
+        <span>4. Fuel Type Handling</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Supports multiple fuel types, detecting and managing fuel type mismatches.</li>
+</ul>
+<doc-anchor-target id="5-out-of-fuel-scenario">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#5-out-of-fuel-scenario">#</doc-anchor-trigger>
+        <span>5. Out of Fuel Scenario</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Automatically turns off the engine when fuel runs out and notifies the player.</li>
+</ul>
+<doc-anchor-target id="6-engine-control">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#6-engine-control">#</doc-anchor-trigger>
+        <span>6. Engine Control</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Allows players to toggle the engine on/off, preventing start when fuel is empty or the engine is damaged.</li>
+</ul>
+<doc-anchor-target id="7-notifications">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#7-notifications">#</doc-anchor-trigger>
+        <span>7. Notifications</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Sends in-game notifications for events such as low fuel, refuel success, and engine breakdown.</li>
+</ul>
+<doc-anchor-target id="8-getter-functions">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#8-getter-functions">#</doc-anchor-trigger>
+        <span>8. Getter Functions</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Utility functions to retrieve fuel properties like type, consumption, max fuel, and current fuel level.</li>
+</ul>
+<doc-anchor-target id="9-engine-breakdown-and-repair">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#9-engine-breakdown-and-repair">#</doc-anchor-trigger>
+        <span>9. Engine Breakdown and Repair</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Handles engine breakdowns due to fuel type mismatches and allows repairs.</li>
+</ul>
+<hr>
+<doc-anchor-target id="dependencies">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#dependencies">#</doc-anchor-trigger>
+        <span>Dependencies</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><strong>Alt:V Server</strong></li>
+<li><strong>Rebar</strong>: For vehicle data management.</li>
+<li><strong>Ascended Notification API</strong>: For sending notifications.</li>
+</ul>
+<hr>
+<doc-anchor-target id="configuration-options">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#configuration-options">#</doc-anchor-trigger>
+        <span>Configuration Options</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><strong>checkForUpdates</strong>: Check for updates automatically.</li>
+<li><strong>AscHUD</strong>: Use default ASC-Hud.</li>
+<li><strong>ASCHudPro</strong>: Use ASCHudPRO.</li>
+<li><strong>Debug</strong>: Enable or disable debug mode.</li>
+<li><strong>DefaultConsumption</strong>: Default vehicle consumption rates.</li>
+<li><strong>AscNotification</strong>: Enable or disable fuel notifications.</li>
+<li><strong>DefaultFuel</strong>: Set default fuel type.</li>
+<li><strong>DefaultMax</strong>: Set default maximum fuel capacity.</li>
+<li><strong>enableSound</strong>: Enable or disable engine sound effects.</li>
+</ul>
 
                                 
                                 <!-- Required only on API pages -->
@@ -306,6 +367,6 @@ messenger.commands.register({
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Usage", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Overview", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

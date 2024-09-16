@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.778096642304">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.779821632751">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -29,12 +29,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.778096642304" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.779821632751" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.778096642304" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.779821632751" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.778096642304" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.778096642304" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.779821632751" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.779821632751" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -185,7 +185,7 @@
 const messenger = Rebar.messenger.useMessenger();
 const FuelAPI = await Rebar.useApi().getAsync(&quot;ascended-fuel-api&quot;); // Import the Fuel API async
 
-FuelAPI.getFuelType(vehicle); // Gets the fuel type of the current vehicle.
+FuelAPI.vehicle.getFuelType(vehicle); // Gets the fuel type of the current vehicle.
 FuelAPI.getFuelTypes(); // Returns all available fuel_types from the config file.
 // ...
 // See Functions below this section</code></pre>
@@ -197,58 +197,26 @@ FuelAPI.getFuelTypes(); // Returns all available fuel_types from the config file
     </h1>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-typescript"><code v-pre class="language-typescript">async function createAscendedFuelPropertie(vehicle: alt.Vehicle) {
-  try {
-    const vehicleDocument = Rebar.document.vehicle.useVehicle(vehicle);
-    await vehicleDocument.setBulk({
-      fuel: 30,
-      ascendedFuel: {
-        consumption: 0,
-        max: 0,
-        type: &quot;&quot;,
-      },
-    });
-    await setConsumptionRates();
-    console.log(
-      `Added ascended fuel properties for Vehicle Model: ${Rebar.utility.vehicleHashes.getNameFromHash(
-        vehicle.model
-      )} | Fuel: ${vehicleDocument.getField(&quot;fuel&quot;)}`
-    );
-  } catch (error) {
-    console.error(&quot;Error while setting ASCENDED-Fuel Properties:&quot;, error);
+<pre class="language-typescript"><code v-pre class="language-typescript">class FuelAPI {
+  public static global = {
+    getFuelTypes: this.getFuelTypes,
+  };
+
+  public static vehicle = {
+    createPropertie: createAscendedFuelPropertie,
+    toggleEngine: toggleEngine,
+    toggleEngineNoPlayer: toggleEngineWithoutPlayer,
+    getFuelType: getVehicleFuelType,
+    getConsumption: getVehicleFuelConsumption,
+    refill: refillVehicle,
+    refillClose: refillClosestVehicle,
+    getMaxFuel: getVehicleMaxFuel,
+    repairMismatch: repairFuelTypeMismatch,
+  };
+
+  private static getFuelTypes() {
+    return FUEL_TYPES;
   }
-}
-
-async function setConsumptionRates() {
-  await setVehicleConsumptionRates();
-}
-
-function toggleVehicleEngine(player: alt.Player) {
-  toggleEngine(player);
-}
-
-async function getFuelType(vehicle: alt.Vehicle) {
-  await getVehicleFuelType(vehicle);
-}
-
-async function getFuelConsumption(vehicle: alt.Vehicle) {
-  await getVehicleFuelConsumption(vehicle);
-}
-
-async function refill(player: alt.Player, amount?: number) {
-  await refillVehicle(player, amount);
-}
-
-async function refillCloseVehicle(player: alt.Player, amount: number) {
-  await refillClosestVehicle(player, amount);
-}
-
-async function getMaxFuel(vehicle: alt.Vehicle) {
-  await getVehicleMaxFuel(vehicle);
-}
-
-function getFuelTypes() {
-  return FUEL_TYPES;
 }</code></pre>
 </doc-codeblock></div>
 
@@ -260,11 +228,11 @@ function getFuelTypes() {
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../open-source/ascended-fuel/usage/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../open-source/ascended-fuel/overview/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Usage</span>
+                                                <span class="block mt-1">Overview</span>
                                             </span>
                                         </a>
                                     </div>
