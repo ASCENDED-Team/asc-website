@@ -3,39 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.779821632751">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.779822090244">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>ASC-Factions Documentation</title>
-    <meta name="title" content="ASC-Factions Documentation">
-    <meta name="description" content="label: \"Manager | Member\" icon: book order: 1400">
+    <title>Installation</title>
+    <meta name="title" content="Installation">
+    <meta name="description" content="In your Rebar directory run the following command to clone the ascended-hud-pro plugin.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://rebar-ascended.dev/paid-source/ascended-factions/permissionmanager/">
+    <link rel="canonical" href="https://rebar-ascended.dev/paid-source/ascended-hud-pro/installation/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rebar-ascended.dev/paid-source/ascended-factions/permissionmanager/">
-    <meta property="og:title" content="ASC-Factions Documentation">
-    <meta property="og:description" content="label: \"Manager | Member\" icon: book order: 1400">
+    <meta property="og:url" content="https://rebar-ascended.dev/paid-source/ascended-hud-pro/installation/">
+    <meta property="og:title" content="Installation">
+    <meta property="og:description" content="In your Rebar directory run the following command to clone the ascended-hud-pro plugin.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rebar-ascended.dev/paid-source/ascended-factions/permissionmanager/">
-    <meta property="twitter:title" content="ASC-Factions Documentation">
-    <meta property="twitter:description" content="label: \"Manager | Member\" icon: book order: 1400">
+    <meta property="twitter:url" content="https://rebar-ascended.dev/paid-source/ascended-hud-pro/installation/">
+    <meta property="twitter:title" content="Installation">
+    <meta property="twitter:description" content="In your Rebar directory run the following command to clone the ascended-hud-pro plugin.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.779821632751" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.779822090244" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.779821632751" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.779822090244" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.779821632751" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.779821632751" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.779822090244" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.779822090244" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -170,213 +170,22 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<hr>
-<p>label: &quot;Manager | Member&quot;
-icon: book
-order: 1400</p>
-<hr>
-<doc-anchor-target id="asc-factions-documentation" class="break-words">
+<doc-anchor-target id="installation" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#asc-factions-documentation">#</doc-anchor-trigger>
-        <span>ASC-Factions Documentation</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#installation">#</doc-anchor-trigger>
+        <span>Installation</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="overview">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#overview">#</doc-anchor-trigger>
-        <span>Overview</span>
-    </h2>
-</doc-anchor-target>
-<p>The <code v-pre>ASC-Factions</code> module provides a set of functions for managing factions within the <code v-pre>alt-server</code> environment. This includes creating, updating, and deleting factions, as well as managing faction members and ranks.</p>
-<doc-anchor-target id="import-the-factionapi">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#import-the-factionapi">#</doc-anchor-trigger>
-        <span>Import the FactionAPI</span>
-    </h2>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">const FactionsAPI = useApi().getAsync(&quot;ascended-factions-api&quot;);
-
-FactionsAPI.permission.someFunction();</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="functions">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#functions">#</doc-anchor-trigger>
-        <span>Functions</span>
-    </h2>
-</doc-anchor-target>
-<doc-anchor-target id="addrankpermissionfactionname-string-rankname-string-permission-string">
+<doc-anchor-target id="installation-guide">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#addrankpermissionfactionname-string-rankname-string-permission-string">#</doc-anchor-trigger>
-        <span><code v-pre>addRankPermission(factionName: string, rankName: string, permission: string)</code></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#installation-guide">#</doc-anchor-trigger>
+        <span>Installation Guide</span>
     </h3>
 </doc-anchor-target>
-<p>Adds a permission to a rank within a faction.</p>
-<doc-anchor-target id="usage">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#usage">#</doc-anchor-trigger>
-        <span>Usage:</span>
-    </h4>
-</doc-anchor-target>
+<p>In your Rebar directory run the following command to clone the ascended-hud-pro plugin.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">await addRankPermission(&quot;FactionName&quot;, &quot;RankName&quot;, &quot;Permission&quot;);</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">git clone https://github.com/ASCENDED-Team/asc-hud-pro src/plugins/asc-hud-pro</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="behavior">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#behavior">#</doc-anchor-trigger>
-        <span>Behavior:</span>
-    </h4>
-</doc-anchor-target>
-<ul>
-<li>Checks if the faction exists.</li>
-<li>Checks if the rank exists within the faction.</li>
-<li>Adds the permission to the rank if not already present.</li>
-<li>Updates the database with the new permission.</li>
-<li>Logs the addition status.</li>
-<li>Updates member permissions.</li>
-</ul>
-<doc-anchor-target id="removerankpermissionfactionname-string-rankname-string-permission-string">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#removerankpermissionfactionname-string-rankname-string-permission-string">#</doc-anchor-trigger>
-        <span><code v-pre>removeRankPermission(factionName: string, rankName: string, permission: string)</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Removes a permission from a rank within a faction.</p>
-<doc-anchor-target id="usage-1">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#usage-1">#</doc-anchor-trigger>
-        <span>Usage:</span>
-    </h4>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">await removeRankPermission(&quot;FactionName&quot;, &quot;RankName&quot;, &quot;Permission&quot;);</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="behavior-1">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#behavior-1">#</doc-anchor-trigger>
-        <span>Behavior:</span>
-    </h4>
-</doc-anchor-target>
-<ul>
-<li>Checks if the faction exists.</li>
-<li>Checks if the rank exists within the faction.</li>
-<li>Removes the permission from the rank if present.</li>
-<li>Updates the database with the removed permission.</li>
-<li>Logs the removal status.</li>
-<li>Updates member permissions.</li>
-</ul>
-<doc-anchor-target id="checkrankpermissionfactionname-string-rankname-string-permission-string-promiseboolean">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#checkrankpermissionfactionname-string-rankname-string-permission-string-promiseboolean">#</doc-anchor-trigger>
-        <span><code v-pre>checkRankPermission(factionName: string, rankName: string, permission: string): Promise&lt;boolean&gt;</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Checks if a rank within a faction has a specific permission.</p>
-<doc-anchor-target id="usage-2">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#usage-2">#</doc-anchor-trigger>
-        <span>Usage:</span>
-    </h4>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">const hasPermission = await checkRankPermission(
-  &quot;FactionName&quot;,
-  &quot;RankName&quot;,
-  &quot;Permission&quot;
-);</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="behavior-2">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#behavior-2">#</doc-anchor-trigger>
-        <span>Behavior:</span>
-    </h4>
-</doc-anchor-target>
-<ul>
-<li>Checks if the faction exists.</li>
-<li>Checks if the rank exists within the faction.</li>
-<li>Checks if the rank has the specified permission.</li>
-<li>Logs the permission status.</li>
-<li>Returns <code v-pre>true</code> if the permission exists, <code v-pre>false</code> otherwise.</li>
-</ul>
-<doc-anchor-target id="updatememberpermissionsfactionname-string-memberid-number-newrankname-string">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#updatememberpermissionsfactionname-string-memberid-number-newrankname-string">#</doc-anchor-trigger>
-        <span><code v-pre>updateMemberPermissions(factionName: string, memberId: number, newRankName: string)</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Updates a member&#x27;s permissions when their rank changes.</p>
-<doc-anchor-target id="usage-3">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#usage-3">#</doc-anchor-trigger>
-        <span>Usage:</span>
-    </h4>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">await updateMemberPermissions(&quot;FactionName&quot;, 12345, &quot;NewRankName&quot;);</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="behavior-3">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#behavior-3">#</doc-anchor-trigger>
-        <span>Behavior:</span>
-    </h4>
-</doc-anchor-target>
-<ul>
-<li>Checks if the faction exists.</li>
-<li>Finds the member in the faction.</li>
-<li>Updates the member&#x27;s rank and permissions.</li>
-<li>Updates the database with the new rank and permissions.</li>
-<li>Logs the update status.</li>
-</ul>
-<doc-anchor-target id="revokeallgrouppermissionsmember">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#revokeallgrouppermissionsmember">#</doc-anchor-trigger>
-        <span><code v-pre>revokeAllGroupPermissions(member)</code></span>
-    </h3>
-</doc-anchor-target>
-<p>Revokes all group permissions for a member.</p>
-<doc-anchor-target id="usage-4">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#usage-4">#</doc-anchor-trigger>
-        <span>Usage:</span>
-    </h4>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">await revokeAllGroupPermissions(member);</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="behavior-4">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#behavior-4">#</doc-anchor-trigger>
-        <span>Behavior:</span>
-    </h4>
-</doc-anchor-target>
-<ul>
-<li>Logs the member information.</li>
-<li>Removes all group permissions for the member.</li>
-</ul>
-<doc-anchor-target id="database-initialization">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#database-initialization">#</doc-anchor-trigger>
-        <span>Database Initialization</span>
-    </h2>
-</doc-anchor-target>
-<p>Ensure the factions collection is created:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">await Database.createCollection(FactionsConfig.dbCollection);</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="logging">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#logging">#</doc-anchor-trigger>
-        <span>Logging</span>
-    </h2>
-</doc-anchor-target>
-<p>The module uses <code v-pre>alt.logWarning</code> to log various statuses and errors throughout the operations.</p>
-<doc-anchor-target id="summary">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#summary">#</doc-anchor-trigger>
-        <span>Summary</span>
-    </h2>
-</doc-anchor-target>
-<p>This module provides comprehensive functionality for managing faction ranks and permissions in <code v-pre>alt-server</code>, including adding, removing, checking, and updating permissions, as well as revoking all permissions for a specific member. It leverages a caching mechanism to optimize performance and ensure efficient data retrieval.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -386,20 +195,20 @@ FactionsAPI.permission.someFunction();</code></pre>
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../paid-source/ascended-factions/membermanager/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../paid-source/ascended-fuelstations/usage/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Manager | Member</span>
+                                                <span class="block mt-1">Usage</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../paid-source/ascended-factions/getter/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../paid-source/ascended-menu/installation/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Faction | Getter</span>
+                                                <span class="block mt-1">Installation</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -443,6 +252,6 @@ FactionsAPI.permission.someFunction();</code></pre>
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Manager | Permission", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Installation", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
